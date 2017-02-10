@@ -38,7 +38,7 @@ class ICOPDiscussion(form.Schema, IImageScaleTraversable):
            required=True,
         )
 
-    description = schema.TextLine(
+    description = schema.Text(
            title=_(u"Description"),
            required=True,
         )
