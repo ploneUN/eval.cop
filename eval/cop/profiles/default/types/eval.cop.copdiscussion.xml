@@ -7,20 +7,16 @@
   <property name="title" i18n:translate="">COP Discussion</property>
   <property name="description"
     i18n:translate="">COP Discussion</property>
-  <property name="icon_expr">string:${portal_url}/folder_icon.png</property>
+  <property name="icon_expr">string:${portal_url}/document_icon.png</property>
   <property name="factory">eval.cop.copdiscussion</property>
   <property name="global_allow">False</property>
   <property name="filter_content_types">True</property>  
   <property name="allowed_content_types" purge="False">
-    <element value="eval.cop.copitem" />
-    <element value="News Item" />
-    <element value="File" />
-  </property>
   <property name="allow_discussion">False</property>
 
   <!-- schema and class used for content items -->
   <property name="schema">eval.cop.content.cop_discussion.ICOPDiscussion</property> 
-  <property name="klass">plone.dexterity.content.Container</property>
+  <property name="klass">plone.dexterity.content.Item</property>
   <property name="behaviors">
      <!--element value="plone.app.content.interfaces.INameFromTitle" />
      <element value="plone.app.dexterity.behaviors.metadata.IDublinCore"/-->
