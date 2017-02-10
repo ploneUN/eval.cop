@@ -9,7 +9,7 @@
     i18n:translate="">COP Item</property>
   <property name="icon_expr">string:${portal_url}/folder_icon.png</property>
   <property name="factory">eval.cop.copitem</property>
-  <property name="global_allow">False</property>
+  <property name="global_allow">True</property>
   <property name="filter_content_types">True</property>  
   <property name="allowed_content_types" purge="False">
     <element value="eval.cop.copdiscussion" />
@@ -25,6 +25,7 @@
      <!--element value="plone.app.content.interfaces.INameFromTitle" />
      <element value="plone.app.dexterity.behaviors.metadata.IDublinCore"/-->
      <element value="plone.app.dexterity.behaviors.exclfromnav.IExcludeFromNavigation"/>
+     <!--element value="plone.app.contenttypes.behaviors.leadimage.ILeadImage"/-->
      <element value="plone.multilingualbehavior.interfaces.IDexterityTranslatable"/>
      <element value="plone.app.referenceablebehavior.referenceable.IReferenceable"/>
      <element value="collective.dexteritytextindexer.behavior.IDexterityTextIndexer"/>
