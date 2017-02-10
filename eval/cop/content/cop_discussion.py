@@ -14,6 +14,7 @@ from z3c.form import group, field
 from plone.namedfile.interfaces import IImageScaleTraversable
 from plone.namedfile.field import NamedImage, NamedFile
 from plone.namedfile.field import NamedBlobImage, NamedBlobFile
+from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
 
 from plone.app.textfield import RichText
 
@@ -31,6 +32,22 @@ class ICOPDiscussion(form.Schema, IImageScaleTraversable):
     """
     COP Discussion
     """
+
+    title = schema.TextLine(
+           title=_(u"Title"),
+           required=True,
+        )
+
+    description = schema.TextLine(
+           title=_(u"Description"),
+           required=True,
+        )
+
+    dexteritytextindexer.searchable('body')
+    form.widget(body=WysiwygFieldWidget)
+    body = schema.Text(title=u"Body")
+
+
     pass
 
 alsoProvides(ICOPDiscussion, IFormFieldProvider)

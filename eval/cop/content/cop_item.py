@@ -5,6 +5,7 @@ from zope import schema
 from zope.schema.interfaces import IContextSourceBinder
 from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
 from plone.autoform.interfaces import IFormFieldProvider
+from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
 from zope.interface import alsoProvides
 
 from zope.interface import invariant, Invalid
@@ -31,6 +32,16 @@ class ICOPItem(form.Schema, IImageScaleTraversable):
     """
     COP Item
     """
+
+    title = schema.TextLine(
+           title=_(u"Title"),
+           required=True,
+        )
+
+    dexteritytextindexer.searchable('body')
+    form.widget(body=WysiwygFieldWidget)
+    body = schema.Text(title=u"Body")
+
     pass
 
 alsoProvides(ICOPItem, IFormFieldProvider)
