@@ -10,5 +10,4 @@
   <!-- -*- extra stuff goes here -*- -->
   <object name="eval.cop.copdiscussion" meta_type="Dexterity FTI" />
   <object name="eval.cop.copitem" meta_type="Dexterity FTI" />
-  <object name="eval.cop.communityofpractice" meta_type="Dexterity FTI" />
 </object>
