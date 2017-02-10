@@ -38,9 +38,19 @@ class ICOPItem(form.Schema, IImageScaleTraversable):
            required=True,
         )
 
+    description = schema.Text(
+           title=_(u"Description"),
+           required=True,
+        )
+
     dexteritytextindexer.searchable('body')
     form.widget(body=WysiwygFieldWidget)
     body = schema.Text(title=u"Body")
+
+    leadimage = NamedBlobImage(
+        title=_(u"Lead Image"),
+        required=False,
+    )
 
     pass
 
