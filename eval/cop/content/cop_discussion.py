@@ -47,6 +47,10 @@ class ICOPDiscussion(form.Schema, IImageScaleTraversable):
     form.widget(body=WysiwygFieldWidget)
     body = schema.Text(title=u"Body")
 
+    leadimage = NamedBlobImage(
+        title=_(u"Lead Image"),
+        required=False,
+    )
 
     pass
 
