@@ -22,40 +22,67 @@
     <p tal:content="structure context/body"></p>
     
     <div class="row">
-        <!-- NEWS -->
-        <h2>News</h2>
-        <tal:block tal:define="contents python: view.get_items('News Item')" tal:condition="contents">
-            <tal:entry tal:repeat="content contents">
-                <a tal:attributes="href python: content.getURL()">
-                    <h5 tal:content="content/Title"></h5>
-                </a>
-                <p tal:content="content/Description"></p>
-            </tal:entry>
-        </tal:block>
-    </div>
-    
-    <div class="row">
-        <h2>Discussions</h2>
-        <tal:block tal:define="contents python: view.get_items('eval.cop.copdiscussion')" tal:condition="contents">
-            <tal:entry tal:repeat="content contents">
-                <a tal:attributes="href python: content.getURL()">
-                    <h5 tal:content="content/Title"></h5>
-                </a>
-                
-            </tal:entry>
-        </tal:block>
-    </div>
-    
-    <div class="row">
-        <h2>Publications</h2>
-        <tal:block tal:define="contents python: view.get_items('File')" tal:condition="contents">
-            <tal:entry tal:repeat="content contents">
-                <a tal:attributes="href python: content.getURL()">
-                    <h5 tal:content="content/Title"></h5>
-                </a>
-                <p tal:content="content/Description"></p>
-            </tal:entry>
-        </tal:block>
+        <!--PUBLICATIONS-->
+        <div class="cell width-1:4 position-1:2">
+            <h2 style="margin-bottom:10px">Publications</h2>
+            <tal:block tal:define="contents python: view.get_items('File')" tal:condition="contents">
+                <tal:entry tal:repeat="content contents">
+                    <div class="row" style="margin-bottom:20px">
+                        <div class ="cell position-0 width-4">
+                            <div>
+                                <img style="width:100%" src="" alt="test img" />
+                            </div>
+                        </div>
+                        <div class ="cell position-4 width-12">
+                           <a tal:attributes="href python: content.getURL()">
+                                <p tal:content="content/Title"/>
+                            </a>
+                        </div>
+                    </div>
+                </tal:entry>
+            </tal:block>
+        </div>
+
+        <!--Discussions-->
+        <div class="cell width-1:4 position-3:4">
+            <h2 style="clear: both;margin-bottom:10px;background:url('++resource++ilo.cop/discussions.png') no-repeat center left;padding-left: 24px;">Discussions</h2>
+            <tal:block tal:define="contents python: view.get_items('eval.cop.copdiscussion')" tal:condition="contents">
+                <tal:entry tal:repeat="content contents">
+
+                    <ul class="ul-discussion">
+                        <li>
+                            <a tal:attributes="href python: content.getURL()">
+                                <p tal:content="content/Title"/>
+                            </a>
+                        </li>
+                    </ul>
+                    
+                </tal:entry>
+            </tal:block>
+        </div>
+
+        <!--NEWS-->
+        <div class="cell width-1:2 position-0">
+            <h2 style="margin-bottom:10px">News</h2>
+            <tal:block tal:define="contents python: view.get_items('News Item')" tal:condition="contents">
+                <tal:entry tal:repeat="content contents">
+                    <div class="row" style="margin-bottom:20px">
+                        <div class ="cell position-0 width-4">
+                            <div>
+                                <img style="width:100%" src="" alt="test img" />
+                            </div>
+                        </div>
+                        <div class ="cell position-4 width-12">
+                          <a tal:attributes="href python: content.getURL()">
+                            <h3 tal:content="content/Title"/>
+                          </a>
+                          <p tal:content="content/Description"/>
+                        </div>
+                    </div>
+                </tal:entry>
+            </tal:block>
+        </div>
+
     </div>
 
     <!--<tal:block repeat="widget view/widgets/values">
