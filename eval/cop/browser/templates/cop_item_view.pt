@@ -27,10 +27,14 @@
             <h2 style="margin-bottom:10px">Publications</h2>
             <tal:block tal:define="contents python: view.get_items('File')" tal:condition="contents">
                 <tal:entry tal:repeat="content contents">
-                    <div class="row" style="margin-bottom:20px">
+                    <div class="row" style="margin-bottom:20px" tal:define="obj python: content._unrestrictedGetObject(); scales obj/@@images">
                         <div class ="cell position-0 width-4">
                             <div>
-                                <img style="width:100%" src="" alt="test img" />
+                                <tal:if tal:condition="python: getattr(obj.aq_explicit, 'image', False) and scales.scale('image', scale='thumb')">
+                                    
+                                    <!--<img style="width:100%" src="" alt="test img" />-->
+                                    <img  tal:replace="structure python: scales.scale('image', scale='thumb').tag(css_class='newsImage')" />
+                                </tal:if>
                             </div>
                         </div>
                         <div class ="cell position-4 width-12">
@@ -66,10 +70,14 @@
             <h2 style="margin-bottom:10px">News</h2>
             <tal:block tal:define="contents python: view.get_items('News Item')" tal:condition="contents">
                 <tal:entry tal:repeat="content contents">
-                    <div class="row" style="margin-bottom:20px">
+                    <div class="row" style="margin-bottom:20px" tal:define="obj python: content._unrestrictedGetObject(); scales obj/@@images|nothing">
                         <div class ="cell position-0 width-4">
                             <div>
-                                <img style="width:100%" src="" alt="test img" />
+                                <tal:if tal:condition="python: getattr(obj.aq_explicit, 'image', False) and scales.scale('image', scale='thumb')">
+                                    
+                                    <img  tal:replace="structure python: scales.scale('image', scale='thumb').tag(css_class='newsImage')" />
+                                <!--<img style="width:100%" src="" alt="test img" />-->
+                                </tal:if>
                             </div>
                         </div>
                         <div class ="cell position-4 width-12">
