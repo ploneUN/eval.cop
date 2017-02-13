@@ -34,6 +34,7 @@ setup(name='eval.cop',
           'plone.app.multilingual',
           'plone.multilingualbehavior',
           'plone.app.versioningbehavior',
+          'plone.app.contenttypes',
           # -*- Extra requirements: -*-
       ],
       extras_require={
