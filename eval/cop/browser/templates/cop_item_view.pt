@@ -15,10 +15,50 @@
     if needed.
 </tal:comment>
 
-<metal:main fill-slot="content-core">
+<metal:main fill-slot="main">
   <metal:content-core define-macro="content-core">
+    <h1 tal:content="context/Title"></h1>
+    <h3 tal:content="context/description"></h3>
+    <p tal:content="structure context/body"></p>
+    
+    <div class="row">
+        <!-- NEWS -->
+        <h2>News</h2>
+        <tal:block tal:define="contents python: view.get_items('News Item')" tal:condition="contents">
+            <tal:entry tal:repeat="content contents">
+                <a tal:attributes="href python: content.getURL()">
+                    <h5 tal:content="content/Title"></h5>
+                </a>
+                <p tal:content="content/Description"></p>
+            </tal:entry>
+        </tal:block>
+    </div>
+    
+    <div class="row">
+        <h2>Discussions</h2>
+        <tal:block tal:define="contents python: view.get_items('eval.cop.copdiscussion')" tal:condition="contents">
+            <tal:entry tal:repeat="content contents">
+                <a tal:attributes="href python: content.getURL()">
+                    <h5 tal:content="content/Title"></h5>
+                </a>
+                
+            </tal:entry>
+        </tal:block>
+    </div>
+    
+    <div class="row">
+        <h2>Publications</h2>
+        <tal:block tal:define="contents python: view.get_items('File')" tal:condition="contents">
+            <tal:entry tal:repeat="content contents">
+                <a tal:attributes="href python: content.getURL()">
+                    <h5 tal:content="content/Title"></h5>
+                </a>
+                <p tal:content="content/Description"></p>
+            </tal:entry>
+        </tal:block>
+    </div>
 
-    <tal:block repeat="widget view/widgets/values">
+    <!--<tal:block repeat="widget view/widgets/values">
         <div class="field" tal:condition="python:widget.__name__ not in ('IDublinCore.title', 'IDublinCore.description', 'title', 'description',)">
             <label tal:content="widget/label" />
             <br />
@@ -41,7 +81,7 @@
         <tal:block define="listing_macro context/folder_listing/macros/listing">
             <metal:use_macro use-macro="listing_macro" />
         </tal:block>
-    </fieldset>
+    </fieldset>-->
 
   </metal:content-core>
 </metal:main>
