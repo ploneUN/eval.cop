@@ -15,6 +15,12 @@
     if needed.
 </tal:comment>
 
+<metal:styleslot fill-slot='style_slot'>
+      <style type="text/css" media="all">
+         .ImgWrap img {width: 100%;height: auto}
+      </style>    
+</metal:styleslot>
+
 <metal:main fill-slot="main">
   <metal:content-core define-macro="content-core">
     <h1 tal:content="context/Title"></h1>
@@ -35,7 +41,7 @@
                                     <img  tal:replace="structure python: scales.scale('image', scale='thumb').tag(css_class='newsImage')" />
                                 </tal:if>
                             </div>-->
-                            <div tal:condition="content/hasContentLeadImage">
+                            <div  class="ImgWrap" tal:condition="content/hasContentLeadImage">
                                 <tal:block tal:define="obj python: content._unrestrictedGetObject(); scale obj/@@images; img python:scale.scale('leadImage', width=100, height=100)">
                                     <img tal:replace="structure python: img.tag() if img else None"/>
                                 </tal:block>
@@ -43,9 +49,9 @@
                             </div>
                         </div>
                         <div class ="cell position-4 width-12">
-                           <a tal:attributes="href python: content.getURL()">
-                                <p tal:content="content/Title"/>
-                            </a>
+                            <p>
+                                <a tal:attributes="href python: content.getURL()"><strong tal:content="content/Title" /></a>
+                            </p>
                         </div>
                     </div>
                 </tal:entry>
@@ -84,7 +90,7 @@
                                     
                                 </tal:if>
                             </div>-->
-                            <div tal:condition="content/hasContentLeadImage">
+                            <div class="ImgWrap" tal:condition="content/hasContentLeadImage">
                                 <tal:block tal:define="obj python: content._unrestrictedGetObject(); scale obj/@@images; img python:scale.scale('leadImage', width=100, height=100)">
                                     <img tal:replace="structure python: img.tag() if img else None"/>
                                 </tal:block>
@@ -93,9 +99,10 @@
                             
                         </div>
                         <div class ="cell position-4 width-12">
-                          <a tal:attributes="href python: content.getURL()">
-                            <h3 tal:content="content/Title"/>
-                          </a>
+                          
+                            <h3>
+                                <a tal:content="content/Title" tal:attributes="href python: content.getURL()"/>
+                            </h3>
                           <p tal:content="content/Description"/>
                         </div>
                     </div>
