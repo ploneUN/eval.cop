@@ -23,6 +23,12 @@
 
 <metal:main fill-slot="main">
   <metal:content-core define-macro="content-core">
+    <tal:block tal:define="scales context/@@images">
+        <tal:if tal:condition="python: getattr(context.aq_explicit, 'image', False) and scales.scale('image', scale='mini')">
+                                    
+            <img  tal:replace="structure python: scales.scale('image', scale='mini').tag(css_class='newsImage')" />
+        </tal:if>
+    </tal:block>
     <h1 tal:content="context/Title"></h1>
     <h3 tal:content="context/description"></h3>
     <p tal:content="structure context/body"></p>
