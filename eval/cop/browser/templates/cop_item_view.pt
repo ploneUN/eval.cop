@@ -33,10 +33,10 @@
             <img  tal:replace="structure python: scales.scale('image', scale='mini').tag(css_class='newsImage')" />
         </tal:if>
     </div>-->
-    <div tal:define="scales context/@@images" tal:condition="context/leadimage" class="newsImageContainer" style="float:right">
-        <tal:if tal:condition="python: getattr(context.aq_explicit, 'leadimage', False) and scales.scale('leadimage', scale='mini')">
+    <div tal:define="scales context/@@images" tal:condition="context/image" class="newsImageContainer" style="float:right">
+        <tal:if tal:condition="python: getattr(context.aq_explicit, 'image', False) and scales.scale('image', scale='mini')">
                                     
-            <img  tal:replace="structure python: scales.scale('leadimage', scale='mini').tag(css_class='newsImage')" />
+            <img  tal:replace="structure python: scales.scale('image', scale='mini').tag(css_class='newsImage')" />
         </tal:if>
     </div>
     <div>
