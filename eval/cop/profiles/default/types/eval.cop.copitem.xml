@@ -26,6 +26,7 @@
      <element value="plone.app.dexterity.behaviors.metadata.IDublinCore"/-->
      <element value="plone.app.dexterity.behaviors.exclfromnav.IExcludeFromNavigation"/>
      <!--<element value="plone.app.contenttypes.behaviors.leadimage.ILeadImage"/>-->
+     <element value="collective.miscbehaviors.behavior.leadimage.ILeadImage"/>
      <element value="plone.multilingualbehavior.interfaces.IDexterityTranslatable"/>
      <element value="plone.app.referenceablebehavior.referenceable.IReferenceable"/>
      <element value="collective.dexteritytextindexer.behavior.IDexterityTextIndexer"/>
