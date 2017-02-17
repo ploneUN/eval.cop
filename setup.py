@@ -35,6 +35,7 @@ setup(name='eval.cop',
           'plone.multilingualbehavior',
           'plone.app.versioningbehavior',
           'plone.app.contenttypes',
+          'collective.contentleadimage',
           # -*- Extra requirements: -*-
       ],
       extras_require={
